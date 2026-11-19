@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useCharacterBuilderClient } from '@sudobility/characterbuilder_client';
+import { FadeInImage } from '@sudobility/components';
 import { Spinner } from '../ui';
 import { downloadImage } from '../lib/download';
 
@@ -115,10 +116,20 @@ export function ImageTile({
               aria-label={onSelect ? (selected ? 'Selected' : 'Select image') : 'View image'}
               className="absolute inset-0 h-full w-full cursor-pointer"
             >
-              <img src={url} alt={alt} className="h-full w-full object-cover" />
+              <FadeInImage
+                src={url}
+                alt={alt}
+                showSkeleton={false}
+                className="object-cover"
+              />
             </button>
           ) : (
-            <img src={url} alt={alt} className="h-full w-full object-cover" />
+            <FadeInImage
+                src={url}
+                alt={alt}
+                showSkeleton={false}
+                className="object-cover"
+              />
           )}
 
           {label && (
